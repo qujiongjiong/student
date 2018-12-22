@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.kgc.mapper.StudentMapper">
+   <select id="getStudentById" parameterType="Integer" resultType="cn.kgc.entity.Student">
+       select * from student where id=#{id}
+   </select>
+    <select id="getAll" resultType="cn.kgc.entity.Student">
+        select * from student
+    </select>
+    <insert id="addStudent" parameterType="cn.kgc.entity.Student">
+        insert into student (name,age,studentNumber)values (#{name},#{age},#{studentNumber})
+    </insert>
+    <delete id="del" parameterType="Integer">
+        delete from student where id=#{id}
+    </delete>
+    <update id="updata" parameterType="cn.kgc.entity.Student">
+        update student set  name=#{name},age=#{age},studentNumber=#{studentNumber} where id=#{id}
+    </update>
+</mapper>
